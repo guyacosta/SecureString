@@ -8,7 +8,7 @@ Strings in .NET are constants, that is the value can not be changed even if the 
 
 # Security Starts with Reducing the Attack Surface 
 
-Reducing the time in memory where values like cryptographic keys, government identification, credit card numbers, bank accounts or passwords are floating around waiting for garbage collection can reduce the attack window significantly and make it extremely difficult to hack.  In some cases the **.NET GC may take hours, days or longer to clear an object entirely from memory**.  Dumping memory is easy for anyone with system access for operations and maintanence and some processes running on the system which may scans memory for other processes and what their memory.  While control of access to systems running applications with sensitive data is key, defence in depth security principle requires we do more.
+Reducing the time in memory where values like cryptographic keys, government identification, credit card numbers, bank accounts or passwords are floating around waiting for garbage collection can reduce the attack window significantly and make it extremely difficult to hack.  In some cases the **.NET GC may take hours, days or longer to clear an object entirely from memory**.  While control of access to systems running applications with sensitive data is key, defence in depth security principle requires we do more.
 
 # ClearText Values Happen
 
