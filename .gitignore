@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/SecureString
+/SecureString/bin/Debug
+/SecureString/obj
