@@ -24,6 +24,8 @@ If you need to recover the protected value in SecureString the ConvertToString p
 
 # Quick Examples
 ```
+using using SecureStringPlus; //Add the SecureStringExt.dll to your project dependences i.e. Add Reference...
+
 String socialSecurity = Console.Readline();
 SecureString ssNumber = socialSecurity;//automatically encryptes and clears socialSecurity source buffer
 Console.WriteLine(ssNumber.ConvertToString());//decrypts
@@ -34,3 +36,10 @@ SecureString ssNumber2 = ssnumber.ConvertToString().ToSecureString();
 bool isEqual = ssNumber.SecureCompare(ssNumber2);
 String hashValue = ssNumber.SHA256HashValue();
 ```
+# Portability
+
+The key supporting functions are able in .NET Standard as well as .NET Core.  Simply change the target as needed and rebuild.
+
+# Availability
+
+The library will be added to Nuget soon.  For now build and add the reference to your project optionally.
