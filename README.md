@@ -1,12 +1,14 @@
 # SecureString Overview
 
-An extension library for c# string objects providing one step encryption **and source memory buffer clearing** function for sensitive data.  Other libraries exists for encrypting a string but the critical way this one differs is **automatically** takes care to clear the source memory buffer which is missing in the native .NET SecureString and other libraries and is essential for reducing the attack surface for dumping or scanning memory for sensitive values.  This library extends both the String and built-in SecureString class in .NET which had very limited functionality and did not clear the source buffer.
+An extension library for c# string objects providing one step encryption **and source or cleartext memory buffer clearing** for sensitive data.  Other libraries exists for encrypting a string but the critical way this one differs is how it **automatically** takes care to clear the source memory buffer which is missing in the native .NET SecureString and other libraries and is essential for reducing the attack surface for dumping or scanning memory for sensitive values.  This library extends both the String and built-in SecureString class in .NET which had very limited functionality and did not clear the source buffer.
 
 # .NET Strings Are Immutable
 
-Strings in .NET are constants, that is the value can not be changed even if the string is assigned a new value including String.Empty.  In each case the address is modified not the value, pointing to a new string or empty location leaving the original value disonnected but in memory until collected.  That presents a problem for keeping secrets safe in some scenarios.  Dumping memory is as easy as using Windows Task Manager and selecting the process and using the Dump Memory option for it then opening the file in Windows Debugger and scanning for what you want.  Further, oftentimes, debug symbols are left on the server for convenience or can be obtained and used to further simplify finding named variables like creditcard and values of interest.
+Strings in .NET are constants, that is, the value can not be changed even if the string is assigned a new value including String.Empty.  In each case the address is modified not the value, pointing to a new string or empty location leaving the original value disonnected but in memory until collected.  That presents a problem for keeping secrets safe in some scenarios.  
 
-# Security Starts with Reducing the Attack Surface 
+Dumping process memory is as easy e.g. use Windows Task Manager to select the process and the Dump Memory option for it followed by opening the file in Windows Debugger and scanning for what you want.  Further, oftentimes, debug symbols are left on the server for convenience or can be obtained and used to further simplify finding named variables like creditcard and values of interest.
+
+# Reducing the Attack Surface 
 
 Reducing the time in memory where values like cryptographic keys, government identification, credit card numbers, bank accounts or passwords are floating around waiting for garbage collection can reduce the attack window significantly and make it extremely difficult to hack.  In some cases the **.NET GC may take hours, days or longer to clear an object entirely from memory**.  While control of access to systems running applications with sensitive data is key, defence in depth security principle requires we do more.
 
