@@ -29,7 +29,7 @@ namespace SecureStringPlus
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static SecureString ToSecureString(this String value, bool leaveOriginal=false)
+        public static SecureString ToSecureString(this String value, bool leaveOriginal=false, bool makeReadOnly=true)
         {
            value.CheckNullRef();
            SecureString secureString;
@@ -40,7 +40,8 @@ namespace SecureStringPlus
                 {
                     //create encrypted secure string object
                     secureString = new SecureString(chars, value.Length);
-                    secureString.MakeReadOnly();
+                    if (makeReadOnly)
+                        secureString.MakeReadOnly(); //.AddChar and InsertAt methods won't work if true
 
                     if (!leaveOriginal)
                         value.SecureClear();
