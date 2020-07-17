@@ -9,6 +9,8 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    
     steps:
+    - uses: actions/checkout@v2
     - name: AppInspector
       uses: microsoft/ApplicationInspector-Action@v0.9.4
