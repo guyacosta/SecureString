@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: AppInspector
-      uses: microsoft/ApplicationInspector-Action@v0.9.3
+      uses: microsoft/ApplicationInspector-Action@v0.9.4
