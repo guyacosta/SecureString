@@ -12,5 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: AppInspector
-      uses: microsoft/ApplicationInspector-Action@v0.9.4
+    - uses: microsoft/ApplicationInspector-Action@0.9.4
+    - uses: actions/upload-artifact@v2
+      with:
+            name: AppInspectorResults
+            path: AppInspectorResults.json
